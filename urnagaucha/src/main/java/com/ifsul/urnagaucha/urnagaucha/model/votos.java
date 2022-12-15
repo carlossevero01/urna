@@ -1,10 +1,15 @@
 package com.ifsul.urnagaucha.urnagaucha.model;
 
+
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+
 import jakarta.persistence.Table;
 
 @Entity
@@ -17,7 +22,12 @@ public class votos {
     @Column(nullable = false)
     private int turno;
 
-    //VER SE AQUI VAI A FORENG KEY CANDIDATOS
+    
+    @ManyToOne
+    @JoinColumn(name = "CandidatoID") // Esta coluna está na tabela "evento".
+    private candidatos candidato;
+
+
 
     public int getVotoId() {
         return votoId;
@@ -46,6 +56,16 @@ public class votos {
     public String toString() {
         return "votos [votoId=" + votoId + ", turno=" + turno + "]";
     }
+
+    public candidatos getCandidato() {
+        return candidato;
+    }
+
+    public void setCandidato(candidatos candidato) {
+        this.candidato = candidato;
+    }
+
+    
 
     
 }

@@ -6,10 +6,12 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 
 //@SpringBootApplication
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class}) //excluir temporariamente a segurança de login
-public class UrnagauchaApplication {
-
+public class UrnagauchaApplication{
+	
 	public static void main(String[] args) {
 		SpringApplication.run(UrnagauchaApplication.class, args);
 	}
+
+	
 
 }
