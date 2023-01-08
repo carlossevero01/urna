@@ -15,7 +15,7 @@ import com.ifsul.urnagaucha.urnagaucha.model.votos;
 
 public interface votosRepository extends JpaRepository<votos,Integer>{
     
-    @Query("SELECT new com.ifsul.urnagaucha.urnagaucha.model.contagemVotos(c.candidatoId, COUNT(c.candidatoId), c.cargo)"+
+    @Query("SELECT new com.ifsul.urnagaucha.urnagaucha.model.contagemVotos(c.candidatoId, COUNT(c.candidatoId), c.cargo, c.nome)"+
     "FROM votos as v JOIN v.candidato c GROUP BY c.candidatoId ORDER BY COUNT(c.candidatoId) DESC")
     List<contagemVotos> countTotalVotosByCandidatoIdClass();
     void deleteByturno(Integer turno);                     

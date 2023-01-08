@@ -6,14 +6,15 @@ public class contagemVotos {
     private Integer candidatoId;
     private Long votos;
     private String cargo;
+    private String nome;
    
     
 
-    public contagemVotos(Integer candidatoId, Long votos, String cargo) {
+    public contagemVotos(Integer candidatoId, Long votos, String cargo, String nome) {
         this.candidatoId = candidatoId;
         this.votos = votos;
         this.cargo= cargo;
-        
+        this.nome=nome;
     }
 
     public Integer getCandidatoId() {
@@ -44,17 +45,26 @@ public class contagemVotos {
     public String toString() {
         return "contagemVotos: "+
         "\n  candidatoId=" + candidatoId +
-      //  "\n Nome candidato="+cRepository.findById(candidatoId).orElseThrow(null).getNome()+  
+        "\n nome =" + nome +  
         "\n votos=" + votos + 
         "\n cargo=" + cargo ;
     }
 
-    // public String getNomeCandidato() {
-    //     return nomeCandidato;
-    // }
+    public String getNome() {
+        return nome;
+    }
 
-    // public void setNomeCandidato(String nomeCandidato) {
-    //     this.nomeCandidato = nomeCandidato;
-    // }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public contagemVotos() {
+        this.candidatoId = 0;
+        this.votos = (long) 0;
+        this.cargo= "";
+        this.nome="";
+    }
+
+    
     
 }

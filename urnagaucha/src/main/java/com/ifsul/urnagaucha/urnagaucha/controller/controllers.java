@@ -160,8 +160,8 @@ public class controllers {
         listaVotos = vRepository.countTotalVotosByCandidatoIdClass();
         
         for (contagemVotos voto : listaVotos) {
-         
-            contagemVotos cand = new contagemVotos(voto.getCandidatoId(), voto.getVotos(), voto.getCargo());
+            
+            contagemVotos cand = new contagemVotos(voto.getCandidatoId(), voto.getVotos(), voto.getCargo(), voto.getNome());
             if(voto.getCargo().equalsIgnoreCase("Presidente")){ candPres.add(cand); }
             if(voto.getCargo().equalsIgnoreCase("Senador")){ candSen.add(cand); }
             if(voto.getCargo().equalsIgnoreCase("Governador")){ candGov.add(cand); }
