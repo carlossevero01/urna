@@ -8,5 +8,6 @@ public interface servicesTurnos {
     List<turnos> findAll();
     turnos findById(Integer id);
     turnos save(turnos a);
-    void DeleteById(Integer id);
+    void deleteById(Integer id);
+    void deleteBynomeTurno(String turno);
 }

@@ -2,9 +2,7 @@ package com.ifsul.urnagaucha.urnagaucha.model;
 
 
 
-import java.util.List;
-
-
+import java.io.Serializable;
 
 
 import jakarta.persistence.Column;
@@ -14,13 +12,13 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="Turnos")
-public class turnos {
+@Table(name="turnos")
+public class turnos implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int turnoId;
@@ -32,13 +30,18 @@ public class turnos {
     // @JoinColumn(name = "CandidatoID", nullable = false)
     // @OnDelete(action = OnDeleteAction.CASCADE)
     // @JsonIgnore
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "CandidatoID") // Esta coluna está na tabela "evento".
-    private List<candidatos> candidato;
+    private candidatos candidato;
     
 
     
 
+
+    public turnos(String nomeTurno, candidatos candidato) {
+        this.nomeTurno = nomeTurno;
+        this.candidato = candidato;
+    }
 
     public int getTurnoId() {
         return turnoId;
@@ -58,20 +61,22 @@ public class turnos {
     }
 
     public turnos() {
+        this.nomeTurno="";
+        this.candidato= new candidatos();
     }
 
     
 
     @Override
     public String toString() {
-        return "turnos [turnoId=" + turnoId + ", nomeTurno=" + nomeTurno + "]";
+        return "turnos:\n turnoId=" + turnoId + "\n nomeTurno=" + nomeTurno + "\n candidato="+ candidato.getCandidatoId();
     }
 
-    public List<candidatos> getCandidato() {
+    public candidatos getCandidato() {
         return candidato;
     }
 
-    public void setCandidato(List<candidatos> candidato) {
+    public void setCandidato(candidatos candidato) {
         this.candidato = candidato;
     }
 

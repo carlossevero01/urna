@@ -1,5 +1,6 @@
 package com.ifsul.urnagaucha.urnagaucha.services.servicesImplement;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +28,33 @@ public class servicesImplementVotos implements servicesVotos{
     }
 
     @Override
-    public void DeleteById(Integer id) {
+    public void deleteById(Integer id) {
         vRepository.deleteById(id);
     }
+
+   
+    @Override
+    public List<Object[]> countTotalVotosByCandidatoIdClass() {
+        
+        return  countTotalVotosByCandidatoIdClass();
+    }
+
+    @Override
+    public void deleteAll() {
+        vRepository.deleteAll();
+        
+    }
+
+    @Override
+    public void deleteByturno(Integer turno) {
+        deleteByturno( turno); 
+        
+    }
+
+
+
+   
+
+    
     
 }

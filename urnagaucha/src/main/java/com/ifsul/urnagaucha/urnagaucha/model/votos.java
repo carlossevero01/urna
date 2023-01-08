@@ -2,6 +2,8 @@ package com.ifsul.urnagaucha.urnagaucha.model;
 
 
 
+import java.io.Serializable;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,8 +15,8 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="Votos")
-public class votos {
+@Table(name="votos")
+public class votos implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int votoId;
@@ -46,6 +48,8 @@ public class votos {
     }
 
     public votos() {
+        this.turno=0;
+        this.candidato= new candidatos();
     }
 
     public votos(int turno) {
@@ -54,7 +58,7 @@ public class votos {
 
     @Override
     public String toString() {
-        return "votos [votoId=" + votoId + ", turno=" + turno + "]";
+        return "votos: \n votoId=" + votoId + "\n turno=" + turno + "\n candidatoId:"+ candidato.getCandidatoId();
     }
 
     public candidatos getCandidato() {
@@ -62,6 +66,11 @@ public class votos {
     }
 
     public void setCandidato(candidatos candidato) {
+        this.candidato = candidato;
+    }
+
+    public votos(int turno, candidatos candidato) {
+        this.turno = turno;
         this.candidato = candidato;
     }
 

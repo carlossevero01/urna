@@ -27,8 +27,16 @@ public class servicesImplementTurnos implements servicesTurnos{
     }
 
     @Override
-    public void DeleteById(Integer id) {
+    public void deleteById(Integer id) {
         tRepository.deleteById(id);
+    }
+
+    
+
+    @Override
+    public void deleteBynomeTurno(String turno) {
+        tRepository.deleteBynomeTurno(turno);
+        
     }
     
 }
