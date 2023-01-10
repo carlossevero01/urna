@@ -205,7 +205,7 @@ public class controllers {
            
            for(int i=0;i<3500;i++){
            votos v = new votos();
-           int random =  (int)(Math.random() * 50) + 50; //50-100
+           int random =  (int)(Math.random() * 99) + 1; //0-100
            
            v.setTurno(2);
                 if(random>50){ 
